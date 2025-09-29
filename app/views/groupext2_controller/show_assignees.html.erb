@@ -1,0 +1,21 @@
+<h2>Group Assignees</h2>
+
+Current User <%= User.current %>
+
+<div style="border: solid; width: 50% ; padding: 1em; margin-left:45%" >
+<form action="add_assignee">
+  <h3>Add assignee:</h3>
+  <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Group:</b> <input name="group_name"> <br>
+  <b>User Login:</b> <input name="user_login"></br>
+  <input type="submit" value="Add">
+</form>
+</div>
+
+<div style="margin-top: -9em">
+<table>
+  <tr> <th> Group </th><th> Assignee </th> </tr>
+<% @assignees.each do |assignee| %>
+  <tr> <td> <%= assignee.group.name %> </td><td> <%= assignee.user.login %>(<%= assignee.user %>)</td></tr>
+<% end %>
+</table>
+</div>

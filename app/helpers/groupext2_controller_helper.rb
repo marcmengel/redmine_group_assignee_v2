@@ -1,0 +1,2 @@
+module Groupext2ControllerHelper
+end
