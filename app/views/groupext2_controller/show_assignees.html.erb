@@ -1,7 +1,6 @@
 <h2>Group Assignees</h2>
 
-Current User <%= User.current %>
-
+<%if @assignees != nil %>
 <div style="border: solid; width: 50% ; padding: 1em; margin-left:45%" >
 <form action="add_assignee">
   <h3>Add assignee:</h3>
@@ -13,9 +12,18 @@ Current User <%= User.current %>
 
 <div style="margin-top: -9em">
 <table>
-  <tr> <th> Group </th><th> Assignee </th> </tr>
-<% @assignees.each do |assignee| %>
-  <tr> <td> <%= assignee.group.name %> </td><td> <%= assignee.user.login %>(<%= assignee.user %>)</td></tr>
-<% end %>
+  <tr> <th> Group </th><th> Assignee </th> <th> </th></tr>
+  <% @assignees.each do |assignee| %>
+    <tr> 
+      <td> 
+        <a href="./assignee_show_group?group_name=<%=assignee.group.name%>">
+          <%= assignee.group.name %> 
+        </a>
+      </td>
+      <td> <%= assignee.user.login %> (<%= assignee.user %>)</td>
+      <td class="icon icon-del" > <a href="./del_assignee?user_login=<%=assignee.user.login%>&group_name=<%=assignee.group.name%>">Delete</a>
+    </tr>
+  <% end %>
 </table>
 </div>
+<% end %>

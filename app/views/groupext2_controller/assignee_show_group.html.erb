@@ -1,1 +1,21 @@
-<h2>Groupext2ControllerController#assignee_show_group</h2>
+<h2>Members of group <%=@group%></h2>
+
+<div style="border: solid; width: 50% ; padding: 1em; margin-left:45%" >
+  <form action="assignee_add_user_group">
+    <h3>Add member:</h3>
+    <input type="hidden" name="group_name" value="<%=@group%>"> 
+    <b>User Login:</b> <input name="user_login"></br>
+    <input type="submit" value="Add">
+  </form>
+</div>
+
+<div style="margin-top: -9em">
+  <table>
+  <% @users.each do |user| %>
+    <tr>
+      <td> <%=user%> </td> 
+      <td class="icon icon-del" > <a href="./assignee_del_user_group?user_login=<%=user.login%>&group_name=<%=@group%>">Delete</a> </td>
+    </tr> 
+  <% end %>
+  </table>
+</div>
