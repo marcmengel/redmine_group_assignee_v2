@@ -11,9 +11,11 @@
 
 <div style="margin-top: -9em">
   <table>
+    <tr> <th class="sortable-text">User Name</th><th class="sortable-text">Login</th></tr>
   <% @users.each do |user| %>
     <tr>
       <td> <%=user%> </td> 
+      <td> <%=user.login%> </td> 
       <td class="icon icon-del" > <a href="./assignee_del_user_group?user_login=<%=user.login%>&group_name=<%=@group%>">Delete</a> </td>
     </tr> 
   <% end %>
