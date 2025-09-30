@@ -1,7 +1,9 @@
 <h2>Group Assignees</h2>
 
 <%if @assignees != nil %>
-<div style="border: solid; width: 50% ; padding: 1em; margin-left:45%" >
+
+<%if User.current.admin? %>
+<div style="border: solid; width: 50% ; padding: 1em; margin-left:45%; margin-bottom:-9em" >
 <form action="add_assignee">
   <h3>Add assignee:</h3>
   <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Group:</b> <input name="group_name"> <br>
@@ -9,8 +11,8 @@
   <input type="submit" value="Add">
 </form>
 </div>
+<% end %>
 
-<div style="margin-top: -9em">
 <table>
   <tr> <th class="sortable-text"> Group </th><th class="sortable-text"> Assignee </th> <th> </th></tr>
   <% @assignees.each do |assignee| %>
@@ -25,5 +27,4 @@
     </tr>
   <% end %>
 </table>
-</div>
 <% end %>
